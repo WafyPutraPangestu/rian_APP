@@ -139,7 +139,7 @@
 
     <style>
         .parallax-container {
-            background-image: url('/storage/images/tentang-kami.jpg');
+            background-image: url('/storage/images/logoooooo.jpg');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
