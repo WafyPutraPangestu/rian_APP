@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RekapanTigaExport;
 use App\Models\RekapanTiga;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RekapantigaController extends Controller
 {
@@ -127,5 +129,10 @@ class RekapantigaController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new RekapanTigaExport, 'rekapan_tiga.xlsx');
     }
 }

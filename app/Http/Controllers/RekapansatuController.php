@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RekapanSatuExport;
 use App\Models\RekapanSatu;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RekapanSatuController extends Controller
 {
@@ -131,5 +133,10 @@ class RekapanSatuController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new RekapanSatuExport, 'rekapan_satu.xlsx');
     }
 }

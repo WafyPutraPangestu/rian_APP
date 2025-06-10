@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RekapanDuaExport;
 use App\Models\RekapanDua;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RekapanduaController extends Controller
 {
@@ -97,6 +99,10 @@ class RekapanduaController extends Controller
                 ->withInput()
                 ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
+    }
+    public function export()
+    {
+        return Excel::download(new RekapanDuaExport, 'rekapan_dua.xlsx');
     }
 
     /**

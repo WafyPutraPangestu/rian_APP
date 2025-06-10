@@ -22,10 +22,14 @@
               </div>
           @endif
 
-          <div class="mb-4">
+          <div class="mb-4 flex space-x-4">
               <a href="{{ route('rekapandua.create') }}"
                  class="inline-block px-5 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200">
                   Tambah Rekap
+              </a>
+              <a href="{{ route('rekapandua.export') }}"
+                 class="inline-block px-5 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-200">
+                  Download Excel
               </a>
           </div>
 

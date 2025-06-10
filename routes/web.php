@@ -36,6 +36,9 @@ Route::middleware('user')->group(function () {
         Route::delete('/destroy/{kamus}', 'destroy')->name('destroy');
     });
     Route::get('/api/kamus/search', [kamusController::class, 'searchByNamaBu'])->name('kamus.search');
+    Route::get('/rekapanSatu/export', [RekapansatuController::class, 'export'])->name('rekapansatu.export');
+    Route::get('/rekapanDua/export', [RekapanduaController::class, 'export'])->name('rekapandua.export');
+    Route::get('/rekapanTiga/export', [RekapantigaController::class, 'export'])->name('rekapantiga.export');
 
     Route::controller(RekapansatuController::class)->prefix('rekapanSatu')->name('rekapansatu.')->group(function () {
         Route::get('/index', 'index')->name('index');
