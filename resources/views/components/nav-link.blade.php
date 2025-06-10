@@ -1,13 +1,11 @@
-<!-- components/nav-link.blade.php -->
-@props(['active'])
+@props(['active' => false, 'href' => null])
 
-@php
-$classes = ($active ?? false)
-            ? 'inline-flex items-center rounded-es-xl px-5 py-2 bg-blue-500 text-sm font-medium leading-5 text-white hover:bg-blue-500/90  transition duration-300 ease-in-out'
-            : 'inline-flex items-center px-5 py-2 text-sm font-medium leading-5 text-gray-500 rounded-es-xl transition-all duration-300 ease-in-out';
-@endphp
-
-<a {{ $attributes->merge(['class' => $classes]) }}>
-    {{ $slot }}
-</a>
-
+@if($href)
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => 'px-3 py-2 text-sm font-medium ' . ($active ? 'text-gray-900 border-b-2 border-blue-600' : 'text-gray-700 hover:text-gray-900')]) }}>
+        {{ $slot }}
+    </a>
+@else
+    <button {{ $attributes->merge(['class' => 'px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900']) }}>
+        {{ $slot }}
+    </button>
+@endif

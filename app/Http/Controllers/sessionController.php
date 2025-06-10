@@ -30,7 +30,7 @@ class sessionController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::attempt() === 'user') {
-                return redirect()->intended('/test')->with('success', 'Login successful');
+                return redirect()->intended('/')->with('success', 'Login successful');
             }
         }
         return redirect()->back()
