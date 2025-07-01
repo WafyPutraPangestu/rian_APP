@@ -1,2 +1,10 @@
 *
+# Ignore everything in the storage/app directory
+*!private/
+!public/
+!storage/
+!storage/public/
+!storage/public/images/
+# except the following directories and files
+
 !.gitignore
