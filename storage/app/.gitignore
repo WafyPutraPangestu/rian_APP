@@ -4,6 +4,8 @@
 !storage/
 !storage/public/
 !storage/public/images/
+# Ignore everything in the storage/app directory
+# except the following directories and files
 
 
 
